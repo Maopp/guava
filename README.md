@@ -21,3 +21,13 @@ Guava 用 Optional表示可能为 null 的 T 类型引用。一个 Optional 实�
 > 当你需要用一个默认值来替换可能的 null，请使用 Objects.firstNonNull(T, T) 方法。如果两个值都是 null，该方法会抛出 
 NullPointerException。Optional 也是一个比较好的替代方案，例如：Optional.of(first).or(second).
 还有其它一些方法专门处理 null 或空字符串：emptyToNull(String)，nullToEmpty(String)，isNullOrEmpty(String)。
+
+## Preconditions 类
+> 让方法调用的前置条件判断更简单。
+
+- **索引值：**
+> checkElementIndex(int index, int size)
+索引值常用来查找列表、字符串或数组中的元素，如 List.get(int), String.charAt(int)
+- **范围值：**
+> checkPositionIndexes(int start, int end, int size)、checkPositionIndex(int index, int size)
+位置值和位置范围常用来截取列表、字符串或数组，如 List.subList(int，int), String.substring(int)

@@ -2,7 +2,6 @@ package com.catpp.guava.optional;
 
 import com.google.common.base.Optional;
 
-import javax.jws.Oneway;
 import java.util.Set;
 
 /**
@@ -10,7 +9,7 @@ import java.util.Set;
  *
  * @Author cat_pp
  * @Date 2019/1/31
- * @Description
+ * @Description 使用和避免 null
  */
 public class OptionalDemo {
 
