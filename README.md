@@ -36,3 +36,8 @@ NullPointerException。Optional 也是一个比较好的替代方案，例如：
 > Objects类提供适用于所有对象，如equals, hashCode等辅助函数
 equal 和 hashCode 方法使用 Objects
 其他方法使用 MoreObjects
+
+## Ordering 类
+> 排序器[Ordering]是 Guava 流畅风格比较器[Comparator]的实现，它可以用来为构建复杂的比较器，以完成集合排序的功能。
+从实现上说，Ordering 实例就是一个特殊的 Comparator 实例。Ordering 把很多基于 Comparator 的静态方法（如 Collections.max）
+包装为自己的实例方法（非静态方法），并且提供了链式调用方法，来定制和增强现有的比较器。
