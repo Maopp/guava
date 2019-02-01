@@ -31,3 +31,8 @@ NullPointerException。Optional 也是一个比较好的替代方案，例如：
 - **范围值：**
 > checkPositionIndexes(int start, int end, int size)、checkPositionIndex(int index, int size)
 位置值和位置范围常用来截取列表、字符串或数组，如 List.subList(int，int), String.substring(int)
+
+## Objects 类
+> Objects类提供适用于所有对象，如equals, hashCode等辅助函数
+equal 和 hashCode 方法使用 Objects
+其他方法使用 MoreObjects
