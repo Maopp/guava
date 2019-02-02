@@ -41,3 +41,23 @@ equal 和 hashCode 方法使用 Objects
 > 排序器[Ordering]是 Guava 流畅风格比较器[Comparator]的实现，它可以用来为构建复杂的比较器，以完成集合排序的功能。
 从实现上说，Ordering 实例就是一个特殊的 Comparator 实例。Ordering 把很多基于 Comparator 的静态方法（如 Collections.max）
 包装为自己的实例方法（非静态方法），并且提供了链式调用方法，来定制和增强现有的比较器。
+
+## Throwables 类
+> 简化异常和错误的传播与检查
+有时候，你会想把捕获到的异常再次抛出。这种情况通常发生在 Error 或 RuntimeException 被捕获的时候，你没想捕获它们，但是声
+明捕获 Throwable 和 Exception 的时候，也包括了了 Error 或 RuntimeException。Guava 提供了若干方法，来判断异常类型并且重新
+传播异常。
+
+```
+    try {
+        someMethodThatCouldThrowAnything();
+    } catch (IKnowWhatToDoWithThisException e) {
+        handle(e);
+    } catch (Throwable t) {
+        Throwables.propagateIfInstanceOf(t, IOException.class);
+        Throwables.propagateIfInstanceOf(t, SQLException.class);
+        throw Throwables.propagate(t);
+    }
+```
+这些方法都会自己决定是否要抛出异常，但也能直接抛出方法返回的结果——例如，throw Throwables.propagate(t);—— 这样可以向
+编译器声明这里一定会抛出异常。
